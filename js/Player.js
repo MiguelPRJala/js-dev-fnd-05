@@ -6,3 +6,7 @@ var Player = function(name){
     this.Name = name;
     this.Score = 0;
 };
+
+Player.prototype.AddScore = function (quantity) {
+    this.Score += quantity;
+};
