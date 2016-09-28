@@ -7,11 +7,6 @@ var Memory = function (size, players) {
     this.NumberPlayers = players; // Number of players
     this.AteriskMatrix = new Matrix(size);
     this.RandomMatrix = new Matrix(size);
-    this.letters = ["A","B","C","D","E","F",
-                   "G","H","I","J","K","L",
-                   "M","N","O","P","Q","R",
-                   "S","T","U","V","W","X",
-                   "Y","Z"];
     this.Players = new Array(players);    
     return;
 };
@@ -35,8 +30,12 @@ Memory.prototype.GenerateRandomMatrix = function (){
     var values = new Array();
     var counter = 0;
     for (var i = 0; i < (this.Size * this.Size) / 2; i++) {
-        values[counter] = this.letters[i];
-        values[counter + 1] = this.letters[i];
+        var value = i + 1;
+        if (value <= 9) {
+            value = "0" + value;            
+        }        
+        values[counter] = value;
+        values[counter + 1] = value;
         counter += 2;
     }
     
@@ -64,10 +63,10 @@ Memory.prototype.SetMatrixSize = function (){
 Memory.prototype.EnterXYPosition = function (x,y){
     
 };
-
+/*
 Memory.prototype.EndGame() {
     for (var i = 0; i < this.Players.length - 1; i++) {
         if (this.Players[i] >)
     }
     return;
-}
+}*/
